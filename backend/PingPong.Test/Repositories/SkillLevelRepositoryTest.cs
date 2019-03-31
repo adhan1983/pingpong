@@ -43,7 +43,7 @@ namespace PingPong.Test.Repositories
                 SkillLevel _skillLevel3 = new SkillLevel() { Name = "Advanced" };
                 skillLevels.Add(_skillLevel3);
                 SkillLevel _skillLevel4 = new SkillLevel() { Name = "Expert" };
-                skillLevels.Add(_skillLevel3);
+                skillLevels.Add(_skillLevel4);
 
                 bool status = false;
 
