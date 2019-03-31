@@ -1,4 +1,4 @@
-#Ping Pong Manager#
+# Ping Pong Manager
 
 Open the PingPong Web Api Solution
 
