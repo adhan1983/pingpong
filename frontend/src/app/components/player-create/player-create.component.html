@@ -1,0 +1,69 @@
+<div class="container margin-top-1 mat-elevation-z8">
+  <div class="row">
+    <mat-card class="col-sm-12">
+      <mat-card-title *ngIf="!isUpdate">Add New Player</mat-card-title>
+      <mat-card-title *ngIf="isUpdate">Update Player</mat-card-title>
+      <mat-card-content>
+        <form class="col-sm-12" [formGroup]="playerForm">
+          <div class="row">
+            <div class="form-group col-xs-12 col-sm-6">
+              <input type="hidden" formControlName="id" />
+              <label for="exampleInputEmail1">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter first name"
+                formControlName="firstName"
+              />
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+              </div>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6">
+              <label for="exampleInputEmail1">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter last name"
+                formControlName="lastName"
+              />
+            </div>
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-9 col-sm-4">
+              <label for="exampleInputPassword1">Skill</label>
+              <select class="form-control" formControlName="skill">
+                <option *ngFor="let opt of options" [value]="opt.value" [selected]="opt.selected == true">
+                  {{opt.text}}
+                </option>
+              </select>
+              <div *ngIf="submitted && f.skill.errors" class="invalid-feedback">
+                <div *ngIf="f.skill.errors.required">Skill is required</div>
+              </div>
+            </div>
+            <div class="form-group col-3 col-sm-2">
+              <label for="exampleInputPassword1">Age</label>
+              <input type="number" class="form-control" placeholder="Age" min="0" max="100" formControlName="age"/>
+              <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                <div *ngIf="f.age.errors.required">Age is required</div>
+                <div *ngIf="f.age.errors.mininum">Age is required</div>
+              </div>
+            </div>
+            <div class="form-group col-12 col-sm-6">
+              <label for="exampleInputPassword1">E-mail</label>
+              <input type="email" class="form-control" placeholder="Enter your e-mail" formControlName="emailAddress" />
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="!playerForm.valid" (click)="onCreate();" *ngIf="!isUpdate">Add Player</button>
+        <button mat-raised-button color="primary" [disabled]="!playerForm.valid" (click)="onUpdate();" *ngIf="isUpdate">Update Player</button>
+        <button mat-raised-button color="warn" (click)="cancelForm();">Cancel</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

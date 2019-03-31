@@ -1,0 +1,4 @@
+<div class="wrapper">
+<app-player-create (playerCreated)="playerManager.getPlayers();" #playerCreate></app-player-create>
+<app-player-manager (updatePlayer)="playerCreate.setUpdate($event);" #playerManager></app-player-manager>
+</div>
