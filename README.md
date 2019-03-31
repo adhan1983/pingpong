@@ -7,6 +7,7 @@ You should follow all the instrucions below. Please, go to the backend folder an
 - Go to the SkillLevelRepositoryTest.cs in PingPong.Test Project and then execute Insert method
 - Go to the PlayerRepositoryTest.cs in PingPong.Test Project and then execute Insert method
 - Maybe you have to set PingPong.Api as main project.
+- Perform a Rebuild Solution in order to assure that all code will be rebuilt before start it
 - Start PingPong.Api project
 
 Open frontend folder. Be sure you have @angular/cli already installed.
